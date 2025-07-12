@@ -1,0 +1,42 @@
+//
+//  File.swift
+//  IOS Notes
+//
+//  Created by Agrima Sharma on 10/07/25.
+//
+/*
+import Foundation
+ 
+ For Break the retain cycle- we use Weak / Unowned for properties
+ 
+ 
+❓ Why is weak always optional?
+ 
+⭐️⭐️ Because ARC sets weak references to nil when the object is deallocated.
+Only optionals can hold nil, so weak must be declared as optional.
+ 
+ 
+*/
+// unowned is important- USE CASE
+
+//❓ Kya hota agar yahan unowned ki jgh weak use karte?
+//swift
+//Copy
+//Edit
+//// ❌ Not allowed:
+//weak let citizen: Citizen? // ❌ compile error — weak must be var, not let
+//Ya agar:
+//
+//swift
+//Copy
+//Edit
+//weak var citizen: Citizen? // ✅ allowed but optional
+//⚠️ Problem:
+//citizen optional ban jaata hai
+//
+//Lekin Passport hamesha Citizen ke saath hona chahiye
+//
+//Agar citizen nil ho gaya → passport.citizen?.id fail karega
+
+
+//******⭐️⭐️ Use unowned when the reference must always exist and optionality would break the logic.  *******//
