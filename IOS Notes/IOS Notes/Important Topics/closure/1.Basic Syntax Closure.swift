@@ -4,8 +4,16 @@
 //
 //  Created by Agrima Sharma on 30/05/25.
 //
+//
+/*
+ 
+    ✅ A closure is a type of function, but without a name.
+    ✅ It can be assigned to a variable, passed as a parameter, or returned from a function.
+    ✅ Closures can capture and store references to variables from their surrounding context — this is known as capturing values.
+    ✅ Closures are widely used in things like completion handlers, animations, and callbacks.
+ 
 
-//import Foundation
+*/
 //
 //                         //(a) type
 //
