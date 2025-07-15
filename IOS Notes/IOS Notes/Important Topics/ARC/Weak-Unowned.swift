@@ -20,16 +20,11 @@ Only optionals can hold nil, so weak must be declared as optional.
 // unowned is important- USE CASE
 
 //❓ Kya hota agar yahan unowned ki jgh weak use karte?
-//swift
-//Copy
-//Edit
+
 //// ❌ Not allowed:
 //weak let citizen: Citizen? // ❌ compile error — weak must be var, not let
 //Ya agar:
-//
-//swift
-//Copy
-//Edit
+
 //weak var citizen: Citizen? // ✅ allowed but optional
 //⚠️ Problem:
 //citizen optional ban jaata hai
@@ -40,3 +35,15 @@ Only optionals can hold nil, so weak must be declared as optional.
 
 
 //******⭐️⭐️ Use unowned when the reference must always exist and optionality would break the logic.  *******//
+/*
+class Citizen {
+    var passport: Passport?
+}
+
+class Passport {
+    unowned let citizen: Citizen  // ✅ required, non-optional
+    init(citizen: Citizen) {
+        self.citizen = citizen
+    }
+}
+*/

@@ -25,7 +25,7 @@ toyota.person = john
 /*
                         🔄 The Retain Cycle  or Strong Reference Cycle
  
- Now both john and toyota are holding onto each other.
+ Now both john and toyota are holding to each other.
  If we later write john = nil and toyota = nil,
  they won’t be destroyed from memory because they are still pointing to each other — this is called a retain cycle or strong reference cycle.
  

@@ -7,7 +7,7 @@
 
 import Foundation
 
-                                    //✅ Regular Closure Version
+                                    //1.✅ Regular Closure Version
 
 //func movie(action: () -> String) {
 //    print("Start")
@@ -16,14 +16,16 @@ import Foundation
 //}
 //
 //movie {
-//    return "🎬 Movie is playing"
+//    return "
+//
+//Movie is playing"
 //}
 //🔹 Here, we pass a closure using { return ... }.
 
 
 
 
-                                  //✅ Autoclosure Version (Cleaner)
+                                  //2. ✅ Autoclosure Version (Cleaner)
 
 //func movie(action: @autoclosure () -> String) {
 //    print("Start")
