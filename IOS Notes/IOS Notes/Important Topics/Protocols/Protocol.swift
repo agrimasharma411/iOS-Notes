@@ -23,9 +23,9 @@ struct GelPen {
     }
 }
 
-let gelpen = GelPen()
-gelpen.write()
-()
+let order = GelPen()
+order.write()
+
 
 */
 
