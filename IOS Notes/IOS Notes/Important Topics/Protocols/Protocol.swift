@@ -6,24 +6,26 @@
 //
 
 //import Foundation
-//
-//protocol Human {
-//    var name: String { get }
-//    func walk()
-//}
-//
-////  Conform to protocol
-//class Person: Human {
-//    var name = "Amit"
-//    
-//    func walk() {
-//        print("\(name) is walking 🚶")
-//    }
-//}
-//
-//// Use it
-//let p = Person()
-//p.walk()
 
 
+/*
+ |------------------------------------------------------------|
+ |                        protocol                            |
+ |------------------------------------------------------------|
+ 
+protocol Pen {
+    func write()
+}
+
+struct GelPen {
+    func write() {
+        print("writing with gel pen")
+    }
+}
+
+let gelpen = GelPen()
+gelpen.write()
+()
+
+*/
 

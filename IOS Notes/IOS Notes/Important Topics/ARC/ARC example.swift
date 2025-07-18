@@ -47,7 +47,7 @@ toyota.person = john
  • Timers not invalidated
  • For Core Foundation objects, forgetting to call CFRelease
 
- How to fix it:
+ How to fix it: -
  • Use [weak self] or [unowned self] inside closures for reference types
  • Set delegates as weak if possible
  • Always remove observers in deinit
