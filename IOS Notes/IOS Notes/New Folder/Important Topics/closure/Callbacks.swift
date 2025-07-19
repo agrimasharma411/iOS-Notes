@@ -9,7 +9,38 @@
 
 import Foundation
  
----------------------------2. closure as callback -
+ |----------------------------------------------------------|
+ |                       Callback                           |
+ |----------------------------------------------------------|
+ 
+ A callback is  a closure that is passed into a function as a               parameter, and when a particular task is                    completed then it will run.
+ 
+ 
+ 
+ func downloadData(completion: () -> Void) {
+     print("Downloading...")
+     completion()  // ✅ callback runs
+ }
+
+ downloadData {
+     print("Download complete!")  // ✅ callback body
+ }
+ 
+ 
+ 
+ 
+        🔹 Common situations where callback is needed:
+|---------------------------------------------------------------|
+|      Situation            |      Why callback is used?        |
+|---------------------------------------------------------------|
+|✅ Network calls           |  After API response, update UI    |
+|✅ Animation complete      |  Do something after animation ends|
+|✅ Saving to database/file |  Show message after saving done   |
+|✅ User actions            |  Run custom code after button tap |
+|✅ Timers / Delayed work   |  Run code after few seconds       |
+|---------------------------------------------------------------|
+ 
+
  |------------------------------------------------|
  |             no param no return                 |
  |------------------------------------------------|
