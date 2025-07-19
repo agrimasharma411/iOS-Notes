@@ -42,3 +42,29 @@ If closure is not last → you must use normal syntax.
 
 
 */
+
+//---------------------------------------------------------//
+/* If two parameter and last parameter is closure -
+ Then  how railing closure is look like
+//----------------------------------------------------------//
+ 
+ func downloadData(from url: String, completion: () -> Void) {
+     print("Downloading from \(url)")
+     completion()
+ }
+ 
+ ✅ Normal Call:
+
+ downloadData(from: "https://example.com", completion: {
+     print("Download complete")
+ })
+ 
+ 
+ ✅ Trailing Closure:
+
+ downloadData(from: "https://example.com") {
+     print("Download complete")
+ }
+ 
+ 
+ */

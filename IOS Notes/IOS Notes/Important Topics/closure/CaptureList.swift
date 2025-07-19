@@ -4,55 +4,38 @@
 //
 //  Created by Agrima Sharma on 30/05/25.
 //
-
-import Foundation
-//What is Capture List?
-//Capture list decides how a closure saves external variables — either right now (copy) or later (reference).
-
-                               // Capture by Reference (default)
-
-//var x = 10
-//
-//let closure = {
-//    print(x)
-//}
-//
-//x = 20
-//closure()  // Prints 20 because it uses latest value
+/*
+ 
 
 
+What is Capture List?
+ A capture list in Swift is used inside closures to control how external variables (like self) are captured.
 
-                             //Capture by Value (using capture list)
-//var x = 10
-//
-//let closure = { [x] in
-//    print(x)
-//}
-//
-//x = 20
-//closure()  // Prints 10 because value was copied when closure created
+ By default, closures capture strongly, which can create retain cycles.
 
+ We use [weak self] or [unowned self] in a capture list to avoid memory leaks by telling the closure to hold a weak or unowned reference.
 
-//Why use it?
-//To fix values when closure is created
-//To avoid strong reference cycles in classes ([weak self])
+                  
 
-              //How to say in interview:
-//“Capture list controls whether closure keeps the current value or updates later. By default, it captures by reference. Using capture list, I can capture by value or use [weak self] to avoid memory leaks.”
+ class Cap {
+     var action: (() -> Void)?
 
+     func wear() {
+         action = { [weak self] in
+             print("Wearing cap \(self!)") // ✅ self captured weakly
+         }
+     }
 
+     deinit {
+         print("Cap deallocated")
+     }
+ }
 
-                              //✅ 9. Memory & Capture List
-
-class Person {
-    var name = "Amit"
-    
-    lazy var greeting: () -> String = { [weak self] in
-        return "Hello, \(self?.name ?? "Guest")"
-    }
-}
-//
-//
-//
-//🗣️ Say in interview:
-//“To avoid retain cycles, especially in closures inside classes, I use [weak self] in the capture list.”
+ 
+ var myCap: Cap? = Cap()
+ myCap?.wear()
+ myCap?.action?()
+ myCap = nil              // ✅ "Cap deallocated" will print (no                                retain cycle)
+ 
+ 
+*/
