@@ -9,7 +9,7 @@
 
 
 What is Capture List?
- A capture list in Swift is used inside closures to control how external variables (like self) are captured.
+ A capture list is used inside closures to control how external variables (like self) are captured.
 
  By default, closures capture strongly, which can create retain cycles.
 
