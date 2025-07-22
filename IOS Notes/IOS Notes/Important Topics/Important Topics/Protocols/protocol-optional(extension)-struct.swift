@@ -1,9 +1,4 @@
-//
-//  Optional Methods.swift
-//  Digital Notes
-//
-//  Created by Agrima Sharma on 03/06/25.
-//
+
 /*
  |---------------------------------------------------|
  |        protocol-optional(extension)-struct only   |
