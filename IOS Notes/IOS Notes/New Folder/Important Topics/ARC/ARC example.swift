@@ -9,11 +9,17 @@
 import Foundation
 
 class Person {
-   var car : Car?      // (write weak var instead- To break retain cycle )
+   var car : Car?       // (write weak var - To break                               retain cycle )
+  deinit{
+ print("Person Deinit")
+ }
 }
 
 class Car {
     var person : Person?
+   deinit {
+    print("Car deinit")
+ }
 }
 
 var john = Person()

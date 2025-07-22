@@ -12,8 +12,8 @@
  |---------------------------------------------------|
  |        protocol-optional(@objc)-class only        |
  |---------------------------------------------------|
- Note:- 📚 Making protocol Optional in classes (Only via @objc possible)
- Note:- 📚 Restrict protocol for class :- then confirm with Anyobject
+ Note:- 📚 Making protocol Optional in classes (Only via @objc         possible)
+ Note:- 📚 Restrict protocol for class :- then confirm with            Anyobject
 
  
  
@@ -21,8 +21,8 @@
      func close()         // Required ❗
      func refill()        // Required ❗
 
-     @objc optional func write()   // Optional ✅
-     @objc optional func open()    // Optional ✅
+     @objc optional func write()       // Optional ✅
+     @objc optional func open()        // Optional ✅
  }
 
  // MARK: - Class conforming to Pen

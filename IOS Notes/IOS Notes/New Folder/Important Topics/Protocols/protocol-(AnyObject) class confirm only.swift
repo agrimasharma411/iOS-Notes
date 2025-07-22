@@ -1,38 +1,52 @@
-//
-//  protocol (AnyObject) class confirm only.swift
-//  IOS Notes
-//
-//  Created by Agrima Sharma on 19/07/25.
-//
-//import Foundation
 /*
  
  |---------------------------------------------------|
  |        protocol + AnyObject + weak                |
  |---------------------------------------------------|
  
- protocol Pen: AnyObject {
-     func write()
+ protocol Driveable: AnyObject {
+     func drive()
  }
 
- class GelPen: Pen {
-     func write() {
-         print("GelPen writing")
+ class Car: Driveable {
+     func drive() {
+         print("Car is driving")
+     }
+
+     var person: Person?  // strong reference to Person
+
+     deinit {
+         print("Car deallocated")
      }
  }
 
- class Holder {
-     weak var pen: Pen?
+ class Person {
+     weak var car: Driveable?  // weak to avoid retain cycle
+
+     func goForDrive() {
+         car?.drive()
+     }
+
+     deinit {
+         print("Person deallocated")
+     }
  }
 
- var holder = Holder()
- var pen: GelPen? = GelPen()
+ // MARK: - Test
+ var john: Person? = Person()
+ var toyota: Car? = Car()
 
- holder.pen = pen
- holder.pen?.write()  // Output: GelPen writing
+ john?.car = toyota        // Person → weak → Car
+ toyota?.person = john     // Car → strong → Person
 
- pen = nil
- holder.pen?.write()  // No output — pen is nil
- 
- 
+ john?.goForDrive()        // Output: Car is driving
+
+ john = nil                // Break strong ref to Person
+ toyota = nil              // Break strong ref to Car
+
+ 🔁 Output:
+
+ Car is driving
+ Person deallocated
+ Car deallocated
  */

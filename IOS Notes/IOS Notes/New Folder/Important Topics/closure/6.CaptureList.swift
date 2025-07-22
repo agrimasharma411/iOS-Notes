@@ -9,8 +9,9 @@
 
 
 What is Capture List?
- A capture list is used inside closures to control how external variables (like self) are captured.
+ A capture list is used inside closures to control how external                variables (like self) are captured.
 
+ 
  By default, closures capture strongly, which can create retain cycles.
 
  We use [weak self] or [unowned self] in a capture list to avoid memory leaks by telling the closure to hold a weak or unowned reference.
@@ -38,4 +39,11 @@ What is Capture List?
  myCap = nil              // ✅ "Cap deallocated" will print (no                                retain cycle)
  
  
+ class Cap {
+ var action(()->Void)?
+ 
+ func wear() {
+ action = { [weak self] in
+ print ("wearing cap \(Self!)")
 */
+

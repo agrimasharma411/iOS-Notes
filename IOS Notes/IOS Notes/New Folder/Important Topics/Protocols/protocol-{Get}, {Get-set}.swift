@@ -11,11 +11,14 @@
  |---------------------------------------------------|
  
  // ✅ Protocol with get set and get
+ 
+ 
  protocol Pen {
      var color: String { get set }   // Read & Write
      var brand: String { get }       // Read-only
  }
 
+ 
  
  // ✅ Class conforming to Pen
  

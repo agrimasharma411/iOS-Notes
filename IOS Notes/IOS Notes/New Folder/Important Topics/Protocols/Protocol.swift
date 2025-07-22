@@ -17,7 +17,7 @@ protocol Pen {
     func write()
 }
 
-struct GelPen {
+struct GelPen : Pen {
     func write() {
         print("writing with gel pen")
     }

@@ -47,7 +47,7 @@ Closure does not escape the function.
 
                                   ✅ Escaping Closure
 
-func movieAsync(completion: @escaping () -> Void) {
+func movie(completion: @escaping () -> Void) {
     print("Start 🎬")
 
     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -57,11 +57,10 @@ func movieAsync(completion: @escaping () -> Void) {
     print("End 🎞️")
 }
 
-movieAsync {
+movie{
     print("🍿 Movie is starting after some delay...")
 }
 🖨️ Output:-
-t
 Start 🎬
 End 🎞️
 🍿 Movie is starting after some delay...

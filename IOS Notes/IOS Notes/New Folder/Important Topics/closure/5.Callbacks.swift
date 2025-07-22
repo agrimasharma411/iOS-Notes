@@ -19,7 +19,7 @@ import Foundation
  
  func downloadData(completion: () -> Void) {
      print("Downloading...")
-     completion()  // ✅ callback runs
+     completion()                 // ✅ callback runs
  }
 
  downloadData {

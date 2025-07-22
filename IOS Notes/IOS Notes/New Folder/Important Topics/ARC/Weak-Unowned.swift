@@ -16,8 +16,8 @@ import Foundation
             ❓ Why is weak always optional?
  
  
-⭐️⭐️ Because ARC sets weak references to nil when the object is deallocated.
-Only optionals can hold nil, so weak must be declared as optional.
+⭐️⭐️ Because ARC sets weak references to nil when the object is   deallocated.
+     Only optionals can hold nil, so weak must be declared as optional.
  
  
 
