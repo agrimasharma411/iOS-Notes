@@ -1,4 +1,5 @@
 /*
+ 
  protocol Container {
      associatedtype T
      func add(item: T)
@@ -18,6 +19,6 @@
  
  
  let box = IntBox()
- box.add(item: 10)  // Added 10
+ box.add(item: 10)              output-> // Added 10
 
  */

@@ -34,7 +34,9 @@ When we call the movie function, we pass a closure that prints "🍿 Watching mo
 So the closure gets executed in the middle of the function, exactly where completion() is written.
 
 That's why the output appears in order:
-Start → Watching → End — showing that the closure runs between the start and end of the main function.
+ 
+Start → Watching → End — showing that the closure runs between                        the start and end of the main function.
+ 
 ...🧠 Explanation:------->>>>
 
 The closure runs right in the middle of the function.
@@ -45,7 +47,7 @@ Closure does not escape the function.
 
 
 
-                                  ✅ Escaping Closure
+                 ✅ Escaping Closure
 
 func movie(completion: @escaping () -> Void) {
     print("Start 🎬")
