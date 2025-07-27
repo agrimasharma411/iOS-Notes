@@ -8,15 +8,15 @@
  ------------------------------------------------------------
  ✅ Key Points:--->>>
  ------------------------------------------------------------
- Uses Operation (or BlockOperation) to represent tasks.
+1. Uses Operation (or BlockOperation) to represent tasks.
 
- Supports dependencies between operations.
+2. Supports dependencies between operations.
 
- Automatically handles threading (runs in background).
+3. Automatically handles threading (runs in background).
 
- Allows cancellation, priorities, and concurrent execution control.
+4. Allows cancellation, priorities, and concurrent execution control.
 
- Good for complex task management (e.g., image download, parsing, UI update).
+5. Good for complex task management (e.g., image download, parsing, UI update).
  ------------------------------------------------------------
  🧩 Common Use:--->>>
  ------------------------------------------------------------
