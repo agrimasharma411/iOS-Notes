@@ -24,10 +24,11 @@
  The class also has a method called notify() which uses the send() method from the injected sender.
 
  Now, outside this class, I can create a new class called WhatsAppSender, which also conforms to the Sender protocol.
+ -------------------------------------------------------------
  By injecting a WhatsAppSender object into NotificationService, I can reuse the same notify() method without modifying the main class.
 
  This way, the high-level class depends only on the abstraction, not on specific implementations.
-
+----------------------------------------------------------------
 //Code
  
  protocol Sender {
