@@ -47,7 +47,7 @@
                                 🧠 Result: Task starts in                background.
  
  
- Note - Object name could be "task" OR could be "operation" as      well. means craete object task or operation (Of             BlockOperation ) is a same thing.
+ Note - Object name could be "task" OR could be "operation" as      well. means craete object -> task OR operation (Of             BlockOperation ) is a same thing.
        
 
  ----------------------------------------------------------

@@ -75,26 +75,116 @@
  🚀 Question 1. - What is Task in Swift?
  ---------------------------------------------------------------
  
+ Task is used in Swift Concurrency when we want to start async work — like calling an API or running background logic — without blocking the main thread.
+
+ For example, if we’re in a non-async context like a button tap, and we need to run async code, we use Task {} to start it. It lets us write await code inside even from sync places."
+ 
+IN Short--> "Task {} is an async container that lets you use await even inside a regular (non-async) function."
+ 
+ |------------------|
+ |     👇 Code      |
+ |------------------|
+ 
+ func getMessage() async -> String {
+     return "🌞 Good Morning!"
+ }
+
+ func showMessage() {
+     Task {
+         let msg = await getMessage()
+         print(msg)
+     }
+ }
+ ---------------------------------------------------------------
+ 🚀 Question 2. -  What is TaskGroup in Swift?
+ ---------------------------------------------------------------
+ TaskGroup lets you run multiple async tasks in parallel, and wait for all of them to finish.
+ 
+ func fetchAll() async {
+     await withTaskGroup(of: String.self) { group in
+         group.addTask { return "🍎 Apple" }
+         group.addTask { return "🍌 Banana" }
+         group.addTask { return "🍇 Grape" }
+
+         for await fruit in group {
+             print("Got:", fruit)
+         }
+     }
+ }
+
+ ✅ All tasks run in parallel
+ ✅ You collect results one-by-one
+ 
+ ---------------------------------------------------------------
+ 🚀 Question 3. -  What is Actor in Swift?
+ ---------------------------------------------------------------
+ An actor is like a class, but it protects its data from race conditions.
+ Only one task can access its data at a time → thread-safe by default.
+ 
+ |------------------|
+ |     👇 Code      |
+ |------------------|
+ 
+ actor Counter {
+     var value = 100
+
+     func increase() { value += 1 }
+     func decrease() { value -= 1 }
+     func get() -> Int { value }
+ }
+
+ let counter = Counter()
+
+ Task { await counter.increase() }
+ Task { await counter.decrease() }
+ Task {
+     let result = await counter.get()
+     print("✅ Final:", result)
+ }
+ |-------------------------|
+ |     👇 Explanation      |
+ |-------------------------|
+ “Counter is is an actor, and it stores a value that multiple tasks can access.”
+ I run two tasks: one increases the value, one decreases it.
+ Even though both tasks run at the same time, the actor ensures only one accesses the value at a time.
+ So there's no data corruption — and the final value is always consistent.”
+
+ -------------------------------------------------------------
+    Question 3. - What is MainActor?
+ -------------------------------------------------------------
+ MainActor ensures that code runs on the main (UI) thread.
+ Used when you want to update UI from background async code.
+ |-------------------------|
+ |     👇  Example 1 :     |
+ |-------------------------|
  
  
+ @MainActor
+ class ViewModel {
+     func updateUI() {
+         print("✅ Running on main thread")
+     }
+ }
+ |-------------------------|
+ |     👇  Example 2 :     | = OR inside a function:
+ |-------------------------|
  
+
  
+ Task {
+     let data = await fetchData()
+     await MainActor.run {
+         self.label.text = data
+     }
+ }
+ |-------------------------------|
+ |      🧠 Why use MainActor?    |
+ |-------------------------------|
+
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ Swift async code usually runs in the background, but UI must update only on main thread.
+ MainActor.run helps you safely switch to main thread.
+
  
  
  

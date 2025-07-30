@@ -1,9 +1,4 @@
-//
-//  ARC example.swift
-//  Digital Notes
-//
-//  Created by Agrima Sharma on 01/06/25.
-//
+
 //MARK: - retain cycle or strong reference cycle
 /*
 import Foundation
