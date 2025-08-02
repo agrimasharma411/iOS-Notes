@@ -36,24 +36,7 @@ async + serial      ❌ No       ✅ Yes                  ❌ No
 async + concurrent  ❌ No      ❌ No                   ✅ Yes
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  --------------------------------------------------------------
  Question -1 ► What happened when we use Async with Serail queue and sync with concurrent queue???
  --------------------------------------------------------------
