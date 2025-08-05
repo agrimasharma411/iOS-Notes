@@ -65,4 +65,65 @@
    .sink { ... }
    .store(in: &cancellables)
  
+ ---------------------------------------------------------------
+ 6. What is the difference between sink and assign in Combine?
+ ---------------------------------------------------------------
+ Answer:
+
+ sink: Allows custom handling of values and completion.
+
+ assign: Automatically assigns values to a property on an object.
+
+ 
+ // Using sink
+ publisher.sink { value in self.name = value }
+
+ // Using assign
+ publisher.assign(to: \.name, on: self)
+ ---------------------------------------------------------------
+ 7. What is map, flatMap, and switchToLatest in Combine?
+ ---------------------------------------------------------------
+ Answer:
+ These are transform operators:
+
+ map: Transforms each value.
+
+ flatMap: Flattens a nested publisher (e.g., API within API).
+
+ switchToLatest: Cancels the previous publisher and subscribes to the latest one.
+
+ ---------------------------------------------------------------
+ 8. How do you cancel a Combine subscription?
+ ---------------------------------------------------------------
+ Answer:
+
+ Store the subscription in an AnyCancellable.
+
+ Call .cancel() on it or use .store(in:) with a Set<AnyCancellable>.
+
+ Cancelling is important to avoid memory leaks and unnecessary work.
+
+ ---------------------------------------------------------------
+ 9. What are backpressure and demand in Combine?
+ ---------------------------------------------------------------
+ Answer:
+ Backpressure means controlling how many values a subscriber wants to receive at a time.
+ It's handled using the Subscriber protocol by requesting demand in:
+
+ func receive(_ input: Input) -> Subscribers.Demand
+ Usually, Combine manages this for you under the hood.
+
+ ---------------------------------------------------------------
+ 10. Can you use Combine with URLSession? How?
+ ---------------------------------------------------------------
+ Answer:
+ Yes. Combine provides dataTaskPublisher(for:).
+
+ 
+ URLSession.shared.dataTaskPublisher(for: url)
+     .map(\.data)
+     .decode(type: Model.self, decoder: JSONDecoder())
+     .sink(receiveCompletion: ..., receiveValue: ...)
+ It allows reactive-style networking, decoding, and error handling all in one pipeline.
+ 
  */
