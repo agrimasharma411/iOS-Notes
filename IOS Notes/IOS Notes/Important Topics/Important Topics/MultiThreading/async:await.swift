@@ -115,6 +115,66 @@ IN Short--> "Task {} is an async container that lets you use await even inside a
  ✅ All tasks run in parallel
  ✅ You collect results one-by-one
  
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+                   actor in very easy way
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 
+ 
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 🤖 Actor kya hota hai?
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 
+ ⭐️ class jaise hi hota hai
+ ⭐️ Lekin ye multi-threading me safe hota hai
+ ⭐️ Aap jab concurrent code likhte ho, to data race na ho, isliye use hota hai
+
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 🔒 Kyu use karte hain?
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 
+ Jab multiple threads ek hi variable ko access karte hain, to crash ho sakta hai
+
+ actor is problem ko khud handle karta hai (aapko lock ya queue lagane ki zarurat nahi)
+
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 🧱 Syntax kaise hota hai?
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ actor Counter {
+     var value = 0
+
+     func increment() {
+         value += 1
+     }
+ }
+ 
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ ⚙️ Kaise call karte hain?
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+
+ let counter = Counter()
+ await counter.increment() ✅
+ 📌 await lagta hai kyunki actor async safe access deta hai
+
+ ❌ Direct property access allowed nahi hai
+ 
+ print(await counter.value) ✅
+ print(counter.value) ❌  // Error
+ 
+ 
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 📦 Use kab karein?
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 
+ ⭐️ Jab shared data ho aur app multi-threaded ho
+ ⭐️ Jaise: API call karte waqt data update karna, background tasks ke beech sync
+
+ Bss yaad rakho:
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+ 🧠 "actor = class + thread safety (auto)"
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+
+
+
  ---------------------------------------------------------------
  🚀 Question 3. -  What is Actor in Swift?
  ---------------------------------------------------------------
@@ -177,9 +237,22 @@ IN Short--> "Task {} is an async container that lets you use await even inside a
          self.label.text = data
      }
  }
- |-------------------------------|
- |      🧠 Why use MainActor?    |
- |-------------------------------|
+ 
+ 
+ Feature                class                  actor
+ Thread safety        ❌ Not safe           ✅ Built-in safe
+ Multi-thread access  ❌ Unsafe             ✅ Safe (isolated)
+ Inheritance          ✅ Yes                ❌ No
+ Use case             Normal objects        Safe shared data
+ Performance          ⚡️ Faster             🛡️ Safer, but slower
+ 
+ 
+ 
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
+                |-------------------------------|
+                |      🧠 Why use MainActor?    |
+                |-------------------------------|
+ 🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
 
  
  Swift async code usually runs in the background, but UI must update only on main thread.
