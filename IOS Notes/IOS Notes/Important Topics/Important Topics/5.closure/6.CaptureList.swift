@@ -1,9 +1,4 @@
-//
-//  CaptureList.swift
-//  Digital Notes
-//
-//  Created by Agrima Sharma on 30/05/25.
-//
+
 /*
  
 

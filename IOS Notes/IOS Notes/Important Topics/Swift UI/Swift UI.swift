@@ -292,9 +292,4 @@
 
  As soon as data updates, UI updates automatically.
  
- 
- 
- 
- 
- 
  */
