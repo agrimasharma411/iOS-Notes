@@ -1,11 +1,3 @@
-//
-//  File.swift
-//  Digital Notes
-//
-//  Created by Agrima Sharma on 02/06/25.
-//
-
-//import Foundation
 
 
 /*

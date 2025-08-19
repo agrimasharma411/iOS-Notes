@@ -33,20 +33,20 @@
  🔹 Step 2: Device Token milega
  ---------------------------------------------------------
  Agar user allow kare, toh device ko Apple Push Notification Service (APNs) se ek unique device token milta hai.
+ Uss se FCM token generate hoga. kyunki app me Firebase SDK installed h.
 
  📌 Ye token server ko diya jaata hai, taaki wo user tak message bhej sake.
 
  ---------------------------------------------------------
- 🔹 Step 3: Token server ko bhejna hota hai
+ 🔹 Step 3: FCM Token server ko bhejna hota hai
  ---------------------------------------------------------
  App backend ko ye token bhejna padta hai — ye server save karega.
 
  📌 Backend ko pata hoga kisko message bhejna hai.
 
  ---------------------------------------------------------
- 🔹 Step 4: Server APNs ko message bhejta hai
- ---------------------------------------------------------
- Jab koi event hota hai (e.g., new message), server APNs ko message send karta hai — with token.
+ 🔹 Step 4: Server FCM ko request(post) bhejta hai ------------------------------------------------------
+ Jab koi event hota hai (e.g., new message), server FCM ko message send karta hai — with token.
 
  📌 Apple uss token ke base par correct device pe notification bhejta hai.
 
@@ -72,55 +72,37 @@
  |--------------------------------------------------------|
  
  ---------------------------------------------------------
- 🔹 1. Permission Request
+ 🔹 Step 1: Permission lo user se
  ---------------------------------------------------------
- When the app launches, I request user permission using UNUserNotificationCenter.
- If the user allows, the system proceeds to register the app for remote notifications.
+
+ App launch par system popup aata hai → "Allow Notifications?"
 
  ---------------------------------------------------------
- 🔹 2. Device Token from APNs
+ 🔹 Step 2: APNs Device Token generate hota hai
  ---------------------------------------------------------
- After permission is granted, I call
- UIApplication.shared.registerForRemoteNotifications()
- and receive a device token in the didRegisterForRemoteNotificationsWithDeviceToken delegate.
+
+ Agar allow kare → iOS APNs se ek device token banata hai.
+ Firebase SDK isse internally use karke FCM Token banata hai.
 
  ---------------------------------------------------------
- 🔹 3. Send Token to Server
+ 🔹 Step 3: FCM Token server ko bhejna
  ---------------------------------------------------------
- I send this token to the backend server so it can store it for that user.
+
+ App FCM token backend ko bhej deta hai (API call se).
+ Server database me save karta hai user ke saath.
 
  ---------------------------------------------------------
- 🔹 4. Server Sends to APNs
+ 🔹 Step 4: Server → FCM → APNs → Device
  ---------------------------------------------------------
- When the server wants to send a message, it uses this token to send the notification to APNs (Apple Push Notification Service).
- 
- ---------------------------------------------------------
- 🔹 5. APNs Delivers to Device
- ---------------------------------------------------------
- APNs routes the notification to the correct iOS device.
- If the app is in background, the system shows it.
- If the app is in foreground, I handle it manually using:
 
- 
- userNotificationCenter(_:willPresent:withCompletionHandler:)
- ---------------------------------------------------------
- 🔸 Bonus:
- ---------------------------------------------------------
- I also enabled the Push Notification capability in Xcode and used App Store provisioning profiles during deployment.
+ Backend server FCM ko request bhejta hai (token + message).
+ FCM us token ko APNs se map karta hai.
+ APNs correct iPhone pe notification push kar deta hai.
 
+ ---------------------------------------------------------
+ 🔹 Step 5: Notification device par show hota hai
+ ---------------------------------------------------------
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ System tray me dikhai deta hai → user tap kare toh app open ho jata hai / action perform hota hai.
  
  */

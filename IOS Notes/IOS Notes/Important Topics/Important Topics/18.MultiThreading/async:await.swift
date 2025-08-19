@@ -15,7 +15,7 @@
  ├── ✅ TaskGroup           → used for running multiple async
  |                            tasks together
  ├── ✅ Actor               → used for thread-safe data access
- └── ✅ MainActor           → run UI updates safely on main thread
+ └── ✅ MainActor           → run UI updates safely on main                               thread
  
  -------------------------------------------------------------
     Question 1. - Can you explain about async / await?
@@ -24,6 +24,10 @@
  like API calls, image loading, or long operations — without blocking the main thread.
  
  Earlier we used: GCD block,OperationQueue,Closures/Completion                Handlers which are nested create callback hell
+ 
+ |-----------------------------------------------------------|
+ |     why we need async await/ when already have gcd/OQ     |
+ |-----------------------------------------------------------|
  
  ✅ Solution: async/await -
  ⭐️easier to manage than callbacks.
@@ -91,7 +95,7 @@ IN Short--> "Task {} is an async container that lets you use await even inside a
 
  func showMessage() {
      Task {
-         let msg = await getMessage()
+         let result = await getMessage()
          print(msg)
      }
  }
@@ -146,11 +150,9 @@ IN Short--> "Task {} is an async container that lets you use await even inside a
          value += 1
      }
  }
- 
  🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
  ⚙️ Kaise call karte hain?
  🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
-
  let counter = Counter()
  await counter.increment() ✅
  📌 await lagta hai kyunki actor async safe access deta hai

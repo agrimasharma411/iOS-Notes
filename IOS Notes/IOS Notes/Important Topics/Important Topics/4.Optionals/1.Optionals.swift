@@ -1,11 +1,4 @@
-//
-//  Optionals.swift
-//  IOS Notes
-//
-//  Created by Agrima Sharma on 11/07/25.
-//
 
-//import Foundation
 /*
  
  Optional --->>>>  is a type that can hold either a value or nil

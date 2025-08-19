@@ -106,7 +106,7 @@
      let price: Double
  }
  ----------------------------------------------------------
- ✅ Step 2: Service Layer
+ ✅ Step 2: Service Layer (UIKit)
  ----------------------------------------------------------
  Created ProductService class
 
@@ -117,7 +117,7 @@
  Used do-try-catch + JSONDecoder
 
  ----------------------------------------------------------
- ✅ Step 3: ViewModel
+ ✅ Step 3: ViewModel (Swift UI)
  ----------------------------------------------------------
  Created ProductViewModel (ObservableObject)
 

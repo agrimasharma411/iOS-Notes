@@ -4,8 +4,8 @@
  
  For Break the retain cycle- we use Weak / Unowned for properties
  |-------------------------------------------------------------|
- |✅ weak → if object might be nil                             |
- |✅ unowned → if object won’t be nil,required and always alive|
+ |✅ weak var → if object might be nil                             |
+ |✅ unowned let → if object won’t be nil,required and always alive|
  |-------------------------------------------------------------|
  
             ❓ Why is weak always optional?
@@ -15,9 +15,6 @@
      Only optionals can hold nil, so weak must be declared as optional.
  
  
-
- 
- 
  unowned is important-
  ⭐️⭐️ Unowned keep the reference but will not increase the Reference  Count (In this way it prevents from retain cycle when object hold to each other)
  
@@ -25,7 +22,7 @@
 ❓ Kya hota agar yahan unowned ki jgh weak use karte?
 
 // ❌ Not allowed:
-weak let citizen: Citizen? // ❌ compile error — weak must be var, not let
+weak let citizen: Citizen? // ❌ compile error — ⭐️ weak must be var ⭐️, not let
 Ya agar:
 
 weak var citizen: Citizen? // ✅ allowed but optional
@@ -36,9 +33,9 @@ Lekin Passport hamesha Citizen ke saath hona chahiye
 
 Agar citizen nil ho gaya → passport.citizen?.id fail karega
 
-
+🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
 //******⭐️⭐️ Use unowned when the reference must always exist and optionality would break the logic.  *******//
- 
+🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰🀰
 class Citizen {
     var passport: Passport?
 }
