@@ -53,7 +53,7 @@
  1. Connect to server
  2. Get its SSL certificate
  3. Compare it with a certificate stored inside your app
- 4. If match → allow
+ 4. If match → allow, proceed further
  5. If not match → block the connection
 
  🪜 Easy Steps in SSL Pinning (Simple Points)
