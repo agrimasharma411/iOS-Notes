@@ -147,4 +147,5 @@ Firebase ek Google ka platform hai jo backend ka kaam ready-made de deta hai —
  1️⃣ Short interview-style answer
 
  Firestore stores data in collections and documents. Each collection contains documents, and each document holds key-value pairs. To store, we use setData() or addDocument(), and to retrieve, we use getDocument() or getDocuments().
+ 
 */

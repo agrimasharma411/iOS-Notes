@@ -35,7 +35,19 @@
  let num: Int = 4
  print(num.square())  // Output: 16 ✅
  
- 
- 
+ -----------------------------------------------------------
+ In extension 👉
+ -----------------------------------------------------------
+
+ ✅ Add methods (functions)
+
+ ✅ Add computed properties (no storage)
+
+ ✅ Add initializers
+
+ ✅ Add subscripts
+
+ ✅ Add conformance to a protocol
  
  */
+
