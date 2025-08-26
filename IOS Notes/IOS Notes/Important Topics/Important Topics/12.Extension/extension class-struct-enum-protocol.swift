@@ -49,7 +49,7 @@
 
  ✅ Add conformance to a protocol
  
- 
+ //In Extension and in Protocol we cant work with store property, we always work with computed property.
  
  */
 
