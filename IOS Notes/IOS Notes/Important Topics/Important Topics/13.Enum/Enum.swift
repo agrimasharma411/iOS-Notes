@@ -68,7 +68,15 @@
      }
  }
  ----------------------------------------------------------
-  
- 
+ ✅ Key Points for Interviews
+ ----------------------------------------------------------
+
+ Type-safe alternative to constants.
+
+ Can have raw values (default values).
+
+ Can have associated values (extra info with each case).
+
+ Can contain methods and even computed properties.
  
  */
