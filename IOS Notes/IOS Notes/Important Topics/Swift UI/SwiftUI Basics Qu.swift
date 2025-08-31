@@ -15,6 +15,7 @@
      var body: some View {
          List(fruits, id: \.self) { fruit in
              Text(fruit)
+ 
          }
      }
  }
