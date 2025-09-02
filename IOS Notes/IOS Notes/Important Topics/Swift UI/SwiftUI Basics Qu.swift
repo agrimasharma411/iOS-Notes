@@ -19,8 +19,6 @@
          }
      }
  }
-
-
  🔹 Here, id: \.self tells SwiftUI each item is uniquely identified by itself.
 
  ➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣➣
@@ -55,11 +53,9 @@
 
  ✅ Key Points:
 
- List automatically provides scrolling.
-
- Each row can be a simple Text or a custom view.
-
- Use .onDelete modifier for swipe-to-delete.
+ ⭐️List automatically provides scrolling.
+ ⭐️Each row can be a simple Text or a custom view.
+ ⭐️Use .onDelete modifier for swipe-to-delete.
  
  
  
