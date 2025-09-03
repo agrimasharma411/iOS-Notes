@@ -125,5 +125,34 @@
      .decode(type: Model.self, decoder: JSONDecoder())
      .sink(receiveCompletion: ..., receiveValue: ...)
  It allows reactive-style networking, decoding, and error handling all in one pipeline.
+ ---------------------------------------------------------------
+ what is Cancellable ?
+ ---------------------------------------------------------------
+ 👉 Cancellable = a protocol that represents something you can cancel (like a subscription).
+ 👉 AnyCancellable = the concrete type you usually store.
+
+ Key Points for Interview:
+
+ When you subscribe to a publisher (sink, assign), it returns an AnyCancellable.
+
+ You must store this AnyCancellable (usually in a Set<AnyCancellable>) to keep the subscription alive.
+
+ If not stored → subscription gets canceled immediately.
+
+ When AnyCancellable is deallocated → subscription is automatically cancelled (memory safety).
+
+ ✅ Example:
+
+ var cancellables = Set<AnyCancellable>()
+
+ publisher
+     .sink { value in
+         print(value)
+     }
+     .store(in: &cancellables)
+
+
+ So in short:
+ Cancellables are Combine’s way to manage and cancel subscriptions, preventing memory leaks.
  
  */
